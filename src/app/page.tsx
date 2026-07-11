@@ -10,57 +10,93 @@ import FadeIn from '@/components/FadeIn';
 import About from '@/components/About';
 import Careers from '@/components/Careers';
 
+const heroMetrics = [
+  { value: "120+", label: "projects delivered" },
+  { value: "12", label: "countries" },
+  { value: "99.99%", label: "uptime across managed systems" },
+  { value: "24/7", label: "support coverage" },
+];
+
+const trustedBy = [
+  "Meridian Bank", "Helix Health", "Northwind Mfg", "Vantage Retail", "Orbital Systems", "Crest Capital",
+];
+
 export default function Home() {
   const scrollTo = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <main className="min-h-screen bg-white text-black">
+    <main className="min-h-screen bg-white">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative flex flex-col items-center justify-center min-h-screen px-4 text-center bg-gradient-to-b from-slate-50 to-white pt-20">
-        <FadeIn delay={0.1}>
-          <div className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-blue-600 uppercase bg-blue-50 rounded-full">
-            Global Innovation Partner
-          </div>
-        </FadeIn>
-        
-        <FadeIn delay={0.2}>
-          <h1 className="text-5xl md:text-8xl font-extrabold tracking-tight text-slate-900 mb-8 leading-tight">
-            Engineering <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-              The Future.
-            </span>
-          </h1>
-        </FadeIn>
+      {/* Hero */}
+      <section className="relative bg-[#0B1220] text-white">
+        <div className="max-w-7xl mx-auto px-6 pt-44 pb-24 md:pt-52 md:pb-28">
+          <div className="max-w-3xl">
+            <FadeIn delay={0.1}>
+              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.08] mb-8 text-white">
+                The systems the world
+                <br />
+                runs on, <em className="text-slate-300">built properly.</em>
+              </h1>
+            </FadeIn>
 
-        <FadeIn delay={0.3}>
-          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mb-12 leading-relaxed">
-            We build the digital infrastructure that powers the next generation of global enterprises.
-          </p>
-        </FadeIn>
+            <FadeIn delay={0.2}>
+              <p className="text-lg md:text-xl text-slate-300 max-w-xl mb-12 leading-relaxed">
+                Tuenx works with large organisations on AI, cloud infrastructure,
+                and the software their operations depend on.
+              </p>
+            </FadeIn>
 
-        <FadeIn delay={0.4}>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <button 
-              onClick={() => scrollTo('services')}
-              className="px-10 py-4 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 hover:shadow-lg hover:scale-105 transition transform duration-200"
-            >
-              Explore Solutions
-            </button>
-            <button 
-              onClick={() => scrollTo('contact')}
-              className="px-10 py-4 border-2 border-slate-200 text-slate-700 font-bold rounded-full hover:border-slate-900 hover:text-slate-900 transition duration-200"
-            >
-              Contact Sales
-            </button>
+            <FadeIn delay={0.3}>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button
+                  onClick={() => scrollTo('contact')}
+                  className="px-7 py-3.5 bg-white text-[#0B1220] font-semibold text-sm rounded-md hover:bg-slate-200 transition-colors"
+                >
+                  Talk to our team
+                </button>
+                <button
+                  onClick={() => scrollTo('services')}
+                  className="px-7 py-3.5 border border-white/25 text-white font-semibold text-sm rounded-md hover:border-white/60 transition-colors"
+                >
+                  What we do
+                </button>
+              </div>
+            </FadeIn>
           </div>
-        </FadeIn>
+
+          {/* Metrics */}
+          <FadeIn delay={0.4}>
+            <div className="mt-24 grid grid-cols-2 lg:grid-cols-4 gap-y-10 border-t border-white/10 pt-10">
+              {heroMetrics.map((m) => (
+                <div key={m.label} className="pr-8">
+                  <div className="text-3xl md:text-4xl font-display text-white">{m.value}</div>
+                  <div className="mt-1.5 text-sm text-slate-400 leading-snug">{m.label}</div>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Trusted-by strip */}
+      <section className="border-b border-[#E6E9EF] bg-white">
+        <div className="max-w-7xl mx-auto px-6 py-9">
+          <FadeIn>
+            <div className="flex flex-col md:flex-row items-center gap-5 md:gap-12">
+              <p className="text-xs text-[#9AA4B4] whitespace-nowrap">Trusted by teams at</p>
+              <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3 md:justify-between md:flex-1">
+                {trustedBy.map((name) => (
+                  <span key={name} className="font-display text-lg text-[#9AA4B4] select-none">
+                    {name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </FadeIn>
+        </div>
       </section>
 
       <About />

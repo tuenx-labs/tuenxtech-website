@@ -6,57 +6,64 @@ import FadeIn from './FadeIn';
 
 export default function Careers() {
   const previewJobs = [
-    {
-      title: "Senior Full Stack Engineer",
-      dept: "Engineering",
-      loc: "Remote"
-    },
-    {
-      title: "AI/ML Research Scientist",
-      dept: "Data Science",
-      loc: "San Francisco"
-    },
-    {
-      title: "Cloud Solutions Architect",
-      dept: "Infrastructure",
-      loc: "London / Remote"
-    }
+    { title: "Senior Full Stack Engineer", dept: "Engineering", loc: "Remote", type: "Full-time" },
+    { title: "AI/ML Research Scientist", dept: "Data Science", loc: "San Francisco", type: "Full-time" },
+    { title: "Cloud Solutions Architect", dept: "Infrastructure", loc: "London / Remote", type: "Full-time" },
   ];
 
   return (
-    <section id="careers" className="py-24 bg-slate-50">
+    <section id="careers" className="py-28 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <FadeIn>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4 tracking-tight">Join the Tuenx Team</h2>
-            <p className="text-slate-500 text-lg">Build the future with us. We are always looking for exceptional talent.</p>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+            <div>
+              <p className="eyebrow mb-5">Careers</p>
+              <h2 className="font-display text-4xl md:text-5xl text-[#0B1220] leading-[1.12]">
+                Work with us.
+              </h2>
+            </div>
+            <p className="text-lg text-[#5B6472] max-w-md leading-relaxed">
+              We hire carefully and keep teams small. If that sounds right, have a look at
+              what&apos;s open.
+            </p>
           </div>
+        </FadeIn>
 
-          {/* Job Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {previewJobs.map((job, index) => (
-              <div key={index} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-xl transition-all group">
-                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
-                  {job.title}
-                </h3>
-                <p className="text-slate-500 text-sm mb-6">{job.dept} • {job.loc}</p>
-                <Link 
-                  href="/careers/apply" 
-                  className="text-blue-600 font-bold text-sm hover:underline"
-                >
-                  Apply Now →
-                </Link>
-              </div>
-            ))}
-          </div>
+        <div className="border-t border-[#E6E9EF]">
+          {previewJobs.map((job, index) => (
+            <FadeIn key={job.title} delay={index * 0.08}>
+              <Link
+                href="/careers/apply"
+                className="group flex flex-col md:flex-row md:items-center justify-between gap-4 py-8 border-b border-[#E6E9EF] hover:bg-[#F5F7FA] transition-colors px-2 -mx-2"
+              >
+                <div>
+                  <h3 className="text-xl font-semibold text-[#0B1220] tracking-tight group-hover:text-[#1D4ED8] transition-colors mb-1.5">
+                    {job.title}
+                  </h3>
+                  <div className="flex items-center gap-3 text-sm text-[#5B6472]">
+                    <span>{job.dept}</span>
+                    <span className="w-1 h-1 rounded-full bg-[#C4CBD6]" />
+                    <span>{job.loc}</span>
+                    <span className="w-1 h-1 rounded-full bg-[#C4CBD6]" />
+                    <span>{job.type}</span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 text-sm font-semibold text-[#1D4ED8]">
+                  Apply
+                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </div>
+              </Link>
+            </FadeIn>
+          ))}
+        </div>
 
-          {/* This link now points to the new full page */}
-          <div className="mt-12 text-center">
-            <Link 
-              href="/careers" 
-              className="text-blue-600 font-bold hover:underline transition-all cursor-pointer inline-block text-lg"
+        <FadeIn delay={0.25}>
+          <div className="mt-10">
+            <Link
+              href="/careers"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-[#0B1220] text-[#0B1220] text-sm font-semibold rounded-md hover:bg-[#0B1220] hover:text-white transition-colors"
             >
-              View all 12 open positions →
+              All open positions
             </Link>
           </div>
         </FadeIn>

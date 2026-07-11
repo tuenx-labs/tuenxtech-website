@@ -5,55 +5,74 @@ import FadeIn from './FadeIn';
 
 export default function About() {
   const stats = [
-    { label: "Global Clients", value: "50+" },
-    { label: "Projects Delivered", value: "120+" },
-    { label: "Team Members", value: "45+" },
-    { label: "Countries Served", value: "12" },
+    { label: "global clients", value: "50+" },
+    { label: "projects delivered", value: "120+" },
+    { label: "engineers and strategists", value: "45+" },
+    { label: "countries served", value: "12" },
+  ];
+
+  const pillars = [
+    { title: "Senior teams only", desc: "Small groups of experienced engineers, not layers of account managers." },
+    { title: "Accountable for outcomes", desc: "We commit to results you can measure, not hours on a timesheet." },
+    { title: "There for the long run", desc: "Most of our clients have been with us since their first project." },
   ];
 
   return (
-    <section id="about" className="py-24 bg-white scroll-mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left Text */}
-          <FadeIn>
-            <div>
-              <div className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-blue-600 uppercase bg-blue-50 rounded-full">
-                Who We Are
-              </div>
-              <h2 className="text-3xl font-extrabold text-slate-900 sm:text-4xl mb-6">
-                Architects of the Digital Age.
+    <section id="about" className="py-28 bg-white scroll-mt-28">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+          <div className="lg:col-span-6">
+            <FadeIn>
+              <p className="eyebrow mb-5">About</p>
+              <h2 className="font-display text-4xl md:text-5xl text-[#0B1220] mb-8 leading-[1.12]">
+                Built by engineers,
+                <br />
+                run like a partnership.
               </h2>
-              <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-                Founded in 2024, Tuenx Tech emerged with a singular mission: to bridge the gap between complex enterprise needs and agile digital solutions.
+              <p className="text-lg text-[#5B6472] mb-5 leading-relaxed">
+                Tuenx started in 2024 with a small team and a simple frustration:
+                enterprise software takes too long to build and fails too often in production.
               </p>
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                We don't just write code; we engineer outcomes. From Wall Street financial systems to healthcare diagnostics, our footprint is expanding across industries that demand precision, security, and scale.
+              <p className="text-lg text-[#5B6472] mb-12 leading-relaxed">
+                Our work now runs in banks, hospitals, and factories. Environments where
+                mistakes are expensive and reliability is not optional.
               </p>
-              
-              <div className="grid grid-cols-2 gap-6 border-t border-slate-100 pt-8">
-                {stats.map((stat, index) => (
-                  <div key={index}>
-                    <div className="text-3xl font-bold text-slate-900">{stat.value}</div>
-                    <div className="text-sm text-slate-500 font-medium">{stat.label}</div>
+            </FadeIn>
+
+            <FadeIn delay={0.15}>
+              <div className="grid grid-cols-2 sm:grid-cols-4 border-t border-[#E6E9EF]">
+                {stats.map((stat) => (
+                  <div key={stat.label} className="pt-7 pr-6">
+                    <div className="font-display text-3xl text-[#0B1220]">{stat.value}</div>
+                    <div className="text-xs text-[#5B6472] mt-1.5 leading-snug">{stat.label}</div>
                   </div>
                 ))}
               </div>
-            </div>
-          </FadeIn>
+            </FadeIn>
+          </div>
 
-          {/* Right Image/Graphic Area */}
-          <FadeIn delay={0.2}>
-            <div className="relative rounded-2xl overflow-hidden bg-slate-100 h-[500px] border border-slate-200">
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-100"></div>
-              <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(#475569 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
-              
-              <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-slate-900/80 to-transparent text-white">
-                <p className="font-medium text-lg">"Innovation is not about ideas. It is about making ideas happen."</p>
-                <p className="text-sm text-slate-300 mt-2">— The Tuenx Philosophy</p>
+          <div className="lg:col-span-6">
+            <FadeIn delay={0.2}>
+              <div className="rounded-lg bg-[#0B1220] text-white p-10 md:p-12 mb-6">
+                <p className="font-display italic text-2xl md:text-[1.75rem] leading-snug text-slate-100">
+                  &ldquo;Innovation is not about ideas. It is about making ideas happen
+                  reliably, securely, and at scale.&rdquo;
+                </p>
+                <p className="text-sm text-slate-400 mt-6">The Tuenx philosophy</p>
               </div>
+            </FadeIn>
+
+            <div className="divide-y divide-[#E6E9EF] border-y border-[#E6E9EF]">
+              {pillars.map((p, i) => (
+                <FadeIn key={p.title} delay={0.25 + i * 0.08}>
+                  <div className="py-6">
+                    <h3 className="font-semibold text-[#0B1220] mb-1">{p.title}</h3>
+                    <p className="text-sm text-[#5B6472] leading-relaxed">{p.desc}</p>
+                  </div>
+                </FadeIn>
+              ))}
             </div>
-          </FadeIn>
+          </div>
         </div>
       </div>
     </section>

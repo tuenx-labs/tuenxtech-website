@@ -9,7 +9,7 @@ export default function ContactPage() {
   const [activeTab, setActiveTab] = useState('sales');
 
   return (
-    <main className="bg-white min-h-screen pt-48 flex flex-col relative">
+    <main className="bg-[#F5F7FA] min-h-screen pt-28 flex flex-col relative">
       <Navbar />
       
       <div className="flex-grow w-full max-w-7xl mx-auto px-6 pb-32">

@@ -56,7 +56,7 @@ export default function InsightsPage() {
   ];
 
   return (
-    <main className="bg-white min-h-screen pt-48 flex flex-col relative">
+    <main className="bg-white min-h-screen pt-28 flex flex-col relative">
       <Navbar />
       
       <div className="flex-grow w-full max-w-7xl mx-auto px-6 pb-32">

@@ -42,7 +42,7 @@ export default function ApplicationForm() {
   }
 
   return (
-    <main className="bg-white min-h-screen pt-48 flex flex-col relative overflow-hidden">
+    <main className="bg-white min-h-screen pt-28 flex flex-col relative overflow-hidden">
       <Navbar />
       
       {/* Background Decor to match the site vibe */}

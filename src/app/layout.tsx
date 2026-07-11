@@ -1,8 +1,19 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Newsreader } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-display",
+  style: ["normal", "italic"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Tuenx Technologies | Enterprise Digital Transformation",
@@ -26,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} bg-slate-50 text-slate-900 antialiased`}>
+      <body className={`${inter.variable} ${newsreader.variable} ${inter.className} bg-white text-[#0B1220] antialiased`}>
         {children}
       </body>
     </html>

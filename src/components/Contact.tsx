@@ -3,62 +3,70 @@
 import React from 'react';
 import FadeIn from './FadeIn';
 
+const inputClasses = "w-full rounded-md bg-[#F5F7FA] border border-[#E6E9EF] text-[#0B1220] placeholder:text-[#9AA4B4] focus:border-[#1D4ED8] focus:bg-white focus:ring-2 focus:ring-[#1D4ED8]/10 py-3 px-4 outline-none transition-colors text-sm";
+
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 bg-slate-900 text-white scroll-mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-28 bg-[#F5F7FA] scroll-mt-28">
+      <div className="max-w-7xl mx-auto px-6">
         <FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-            <div>
-              <h2 className="text-3xl font-extrabold sm:text-4xl mb-6">
-                Ready to transform your business?
+          <div className="grid grid-cols-1 lg:grid-cols-2 rounded-lg overflow-hidden border border-[#E6E9EF]">
+            {/* Left: dark panel */}
+            <div className="bg-[#0B1220] text-white p-10 md:p-14">
+              <p className="eyebrow !text-slate-500 mb-5">Contact</p>
+              <h2 className="font-display text-3xl md:text-4xl mb-6 leading-[1.15]">
+                Start a conversation.
               </h2>
-              <p className="text-lg text-slate-300 mb-8">
-                Let's discuss how Tuenx Tech can help you build the future. 
-                Our team of engineers and strategists is ready to partner with you.
+              <p className="text-slate-300 mb-12 leading-relaxed max-w-md">
+                Tell us what you&apos;re working on. You&apos;ll hear back from an engineer,
+                not a sales script.
               </p>
-              
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-sm text-slate-400">Email us</p>
-                    <p className="font-semibold">hello@tuenxtech.com</p>
-                  </div>
+
+              <div className="space-y-8">
+                <div>
+                  <p className="text-xs text-slate-500 mb-1.5">Email</p>
+                  <a href="mailto:hello@tuenxtech.com" className="text-lg text-white hover:text-slate-300 transition-colors">
+                    hello@tuenxtech.com
+                  </a>
                 </div>
-                
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-sm text-slate-400">Headquarters</p>
-                    <p className="font-semibold">San Francisco, CA</p>
-                  </div>
+                <div>
+                  <p className="text-xs text-slate-500 mb-1.5">Headquarters</p>
+                  <p className="text-lg text-white">San Francisco, CA</p>
+                </div>
+                <div>
+                  <p className="text-xs text-slate-500 mb-1.5">Regional hubs</p>
+                  <p className="text-lg text-white">London · Bangalore</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-slate-800 p-8 rounded-2xl border border-slate-700">
+            {/* Right: form */}
+            <div className="bg-white p-10 md:p-14">
               <form className="space-y-6">
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-slate-300">Work Email</label>
-                  <input type="email" id="email" className="mt-1 block w-full rounded-md bg-slate-900 border-slate-700 text-white focus:border-blue-500 focus:ring-blue-500 py-3 px-4" placeholder="you@company.com" />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-[#0B1220] mb-2">Full name</label>
+                    <input type="text" id="name" className={inputClasses} placeholder="Jane Smith" />
+                  </div>
+                  <div>
+                    <label htmlFor="company" className="block text-sm font-medium text-[#0B1220] mb-2">Company</label>
+                    <input type="text" id="company" className={inputClasses} placeholder="Acme Corp" />
+                  </div>
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-slate-300">Message</label>
-                  <textarea id="message" rows={4} className="mt-1 block w-full rounded-md bg-slate-900 border-slate-700 text-white focus:border-blue-500 focus:ring-blue-500 py-3 px-4" placeholder="Tell us about your project..."></textarea>
+                  <label htmlFor="email" className="block text-sm font-medium text-[#0B1220] mb-2">Work email</label>
+                  <input type="email" id="email" className={inputClasses} placeholder="you@company.com" />
                 </div>
-                <button type="button" className="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700 transition">
-                  Send Message
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-[#0B1220] mb-2">How can we help?</label>
+                  <textarea id="message" rows={5} className={`${inputClasses} resize-none`} placeholder="A few lines about your project, timeline, and goals."></textarea>
+                </div>
+                <button type="button" className="w-full bg-[#0B1220] text-white font-semibold text-sm py-4 px-6 rounded-md hover:bg-[#1D4ED8] transition-colors">
+                  Send message
                 </button>
+                <p className="text-xs text-[#9AA4B4] leading-relaxed">
+                  We&apos;ll reply within one business day.
+                </p>
               </form>
             </div>
           </div>

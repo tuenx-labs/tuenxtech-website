@@ -1,26 +1,74 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  /* Design tokens */
+  --background: #FFFFFF;
+  --foreground: #0B1220;
+  --ink: #0B1220;          /* near-black navy */
+  --navy: #0E1B33;         /* deep corporate navy */
+  --paper: #FFFFFF;
+  --mist: #F5F7FA;         /* light section background */
+  --line: #E6E9EF;         /* hairline borders */
+  --muted: #5B6472;        /* secondary text */
+  --accent: #1D4ED8;       /* corporate blue */
+  --accent-strong: #163DBC;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
+
+/* Editorial display face for headlines */
+.font-display {
+  font-family: var(--font-display), Georgia, 'Times New Roman', serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Small-caps section label */
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Card with hairline border + quiet hover */
+.card-premium {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.card-premium:hover {
+  border-color: rgba(29, 78, 216, 0.35);
+  box-shadow: 0 16px 32px -24px rgba(14, 27, 51, 0.25);
+}
+
+::selection {
+  background: rgba(29, 78, 216, 0.14);
+  color: var(--ink);
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #C4CBD6; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #9AA4B4; }
+
+.custom-scrollbar::-webkit-scrollbar { width: 4px; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: var(--line); border-radius: 2px; }
