@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Tuenx Technologies - Engineering the Future",
     description: "Discover how Tuenx helps enterprises scale with AI and Cloud Native solutions.",
-    url: "https://tuenxtech-website.vercel.app",
+    url: "https://tuenx.com",
     siteName: "Tuenx Technologies",
     locale: "en_US",
     type: "website",
